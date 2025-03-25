@@ -5,13 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         body{
             font-family: Arial, Helvetica, sans-serif;
             background-image: linear-gradient(45deg, #064f77, #007fff);
         }
+        
         /*body{
         a imagem de fundo não está funcionando
             font-family: Arial, Helvetica, sans-serif;
@@ -51,15 +50,15 @@
     </style>  
 </head>
 <body>
-    <div>
-        <form action="login" method="POST" >
-            <input name="email" type="email" placeholder="E-mail:" autofocus="true" />
-            <br><br><br>
-            <input name="senha" type="password" placeholder="Senha:" />
-            <br><br><br>
-            <input class="button" type="submit" value="Login"  />
-        </form>
-    </div>
+<div>
+    <form action="login" method="POST">
+        <input name="email" type="email" placeholder="E-mail:" autofocus="true" />
+        <br><br><br>
+        <input name="senha" type="password" placeholder="Senha:" />
+        <br><br><br>
+        <input class="button" type="submit" value="Login" />
+    </form>
+</div>
     <!-- não sei como conequitar o codigo
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>

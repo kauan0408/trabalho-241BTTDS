@@ -39,10 +39,19 @@ class Funcionarios_controller extends CI_Controller {
       header("location:funcionarios");
     }
     public function formulario_apagar() {
+      // Obtém o ID do funcionário via GET
       $idFuncionario = $this->input->get('id');
-      $dadosFuncionario = $this->db->delete("funcionarios", ['id =>$idFuncinari']);
-		  $this->load->view('Editar_funcionario_view', ['funcionario' => $dadosFuncionario]);
+
+      // Busca os dados do funcionário antes de excluir
+      $dadosFuncionario = $this->db->get_where("funcionarios", ['id' => $idFuncionario])->row_array();
+  
+      // Exclui o funcionário do banco de dados
+      $this->db->delete("funcionarios", ['id' => $idFuncionario]);
+
+      // Redireciona para a lista de funcionários
+      redirect('funcionarios');
     }
+  
     public function perfil_funcionario() {
       $funcionario = $this->session->userdata('id');
 
