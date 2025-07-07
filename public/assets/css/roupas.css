@@ -1,0 +1,201 @@
+        /* Reset básico */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Body */
+    body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        background-color: #e3f2fd;
+        color: #0d47a1;
+    }
+
+    /* Cabeçalho fixo */
+    .header {
+        background: linear-gradient(90deg, #1565c0, #1e88e5);
+        color: white;
+        padding: 18px 30px;
+        text-align: center;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    .header h1 {
+        margin: 0;
+        font-weight: bold;
+        font-size: 26px;
+    }
+
+    /* Container geral */
+    .wrapper {
+        width: 90%;
+        margin: 120px auto 30px;
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 16px;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Botão voltar */
+    .elemento {
+        background: #1e88e5;
+        border: none;
+        border-radius: 8px;
+        padding: 8px 12px;
+        margin-bottom: 15px;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.2s;
+    }
+
+    .elemento:hover {
+        background: #1565c0;
+        transform: scale(1.05);
+    }
+
+    /* Botões principais */
+    .btn-primary {
+        background: #1e88e5;
+        border: none;
+        color: white;
+        padding: 8px 18px;
+        border-radius: 8px;
+        transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn-primary:hover {
+        background: #1565c0;
+        transform: scale(1.05);
+    }
+
+    /* Botões secundários */
+    .btn-warning {
+        background: #ffb300;
+        border: none;
+        color: white;
+        padding: 6px 14px;
+        border-radius: 6px;
+        transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn-warning:hover {
+        background: #ffa000;
+        transform: scale(1.05);
+    }
+
+    .btn-danger {
+        background: #d32f2f;
+        border: none;
+        color: white;
+        padding: 6px 14px;
+        border-radius: 6px;
+        transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn-danger:hover {
+        background: #c62828;
+        transform: scale(1.05);
+    }
+
+    /* Tabela */
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        background-color: #f5faff;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .table th, .table td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #90caf9;
+        text-align: left;
+    }
+
+    .table th {
+        background: #1e88e5;
+        color: white;
+    }
+
+    .table tr:nth-child(even) {
+        background-color: #e3f2fd;
+    }
+
+    .table tr:hover {
+        background-color: #bbdefb;
+    }
+
+    /* Ação centralizada */
+    .acao {
+        text-align: center;
+    }
+
+    /* Modal */
+    .modal-content {
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    .modal-header {
+        background: #0d47a1;
+        color: white;
+        padding: 16px 20px;
+    }
+
+    .modal-body {
+        background-color: #f9f9f9;
+        padding: 20px;
+    }
+
+    .modal input, .modal select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #90caf9;
+        border-radius: 6px;
+        margin-bottom: 15px;
+    }
+
+    .modal-footer {
+        background-color: #f1f8ff;
+        padding: 10px 20px;
+    }
+
+    /* Botão dentro do modal */
+    .modal button[type="submit"] {
+        background: #1e88e5;
+        color: white;
+        border: none;
+        padding: 10px;
+        width: 100%;
+        border-radius: 6px;
+        transition: background 0.3s, transform 0.2s;
+    }
+
+    .modal button[type="submit"]:hover {
+        background: #1565c0;
+        transform: scale(1.03);
+    }
+
+    label.form-label {
+        color: #0d47a1;
+        font-weight: bold;
+    }
+
+    .swal2-title-large {
+    font-size: 2.2rem !important;      /* Título maior */
+    }
+
+    .swal2-content-large {
+        font-size: 1.4rem !important;      /* Texto maior */
+    }
+
+    .swal2-confirm-large, .swal2-cancel-large {
+        font-size: 1.3rem !important;      /* Botões com letras maiores */
+        padding: 12px 30px !important;     /* Botões maiores para tocar/clicar */
+    }
+    

@@ -1,0 +1,333 @@
+    /* Reset básico */
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Garante que tudo fique acima do fundo animado */
+    body > *:not(.bolinhas) {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1020; /* menor que modal */
+      background-color: white;
+      border-bottom: 1px solid #ddd;
+      padding: 10px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar .left-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .elemento {
+      background: transparent;
+      border: none;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+    }
+
+    .elemento img {
+      width: 28px;
+      height: 28px;
+      display: block;
+      z-index: 2;
+      position: relative;
+    }
+
+    .navbar .logo {
+      font-size: 20px;
+      font-weight: bold;
+      color: #003366;
+    }
+
+    .navbar .menu {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .navbar .menu a {
+      text-decoration: none;
+      color: black;
+      background: transparent;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .navbar .menu a:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    .navbar .menu .carrinho {
+      background-color: #d6ebff;
+      color: #003366;
+      border: 1px solid #003366;
+      padding: 6px 12px;
+      border-radius: 5px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .navbar .menu .carrinho:hover {
+      background-color: #b3dcff;
+    }
+
+    .navbar .menu a.sair-sistema,
+    .navbar .menu .btn-info {
+      background: transparent !important;
+      border: none !important;
+      color: black !important;
+      font-weight: bold !important;
+      padding: 6px 12px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .navbar .menu a.sair-sistema:hover,
+    .navbar .menu .btn-info:hover {
+      color: #0056b3 !important;
+      text-decoration: underline;
+    }
+
+    /* Header */
+    .header {
+      background: url('fundo-azul.png') no-repeat center center;
+      background-size: cover;
+      padding: 50px;
+      color: black;
+    }
+
+    .header h1 {
+      font-size: 28px;
+    }
+
+    .botao {
+      display: inline-block;
+      margin: 20px 0;
+      padding: 10px 20px;
+      background-color: #79b9ff;
+      color: #003366;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    /* Produtos */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .produtos {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .produto.grande {
+      flex: 1 1 30%;
+      max-width: 30%;
+    }
+
+    .grupo {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 50%;
+      max-width: 50%;
+      align-items: center;
+    }
+
+    .grupo .linha {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .grupo .produto img,
+    .produto img {
+      width: 92%;
+      height: 98%;
+      object-fit: cover;
+      border-radius: 5px;
+      margin-top: 30px;
+      z-index: 2;
+      position: relative;
+    }
+
+    .descricao {
+      text-align: center;
+      font-size: 14px;
+      margin-top: 10px;
+      padding: 10px;
+      color: #555;
+    }
+
+    /* Seção "No que acreditamos" */
+    .secao-acreditamos {
+      display: flex;
+      align-items: flex-start;
+      max-width: 900px;
+      margin: 0 auto;
+      gap: 40px;
+    }
+
+    .secao-acreditamos h2 {
+      font-size: 16px;
+      font-weight: bold;
+      text-transform: uppercase;
+      width: 200px;
+      text-align: left;
+      flex-shrink: 0;
+    }
+
+    .secao-acreditamos .meus-paragrafos {
+      flex: 1;
+      max-width: 600px;
+      text-align: justify;
+      line-height: 1.6;
+    }
+
+    .secao-acreditamos p {
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    /* Fundo animado */
+    .bolinhas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .bolinha {
+      position: absolute;
+      background-color: rgba(0, 153, 255, 0.3);
+      border-radius: 50%;
+      animation-name: cair;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes cair {
+      0% {
+        transform: translateY(-10vh);
+        opacity: 0.6;
+      }
+      100% {
+        transform: translateY(110vh);
+        opacity: 0;
+      }
+    }
+
+    /* Modal backdrop */
+    .modal-backdrop {
+      z-index: 1090 !important;
+    }
+
+    /* Modal principal */
+    .modal {
+      position: fixed !important;
+      z-index: 1100 !important;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      outline: 0;
+    }
+
+    /* Modal content estilizado */
+    #modalGestor .modal-content {
+      background-color: #f0f8ff;
+      border-radius: 10px;
+      border: 2px solid #3399ff;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      /* não precisa de z-index aqui */
+      position: relative;
+    }
+
+    #modalGestor .modal-header {
+      background-color: #3399ff;
+      color: white;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      padding: 15px;
+    }
+
+    #modalGestor .modal-header .close {
+      color: white;
+      opacity: 0.8;
+      font-size: 28px;
+    }
+
+    #modalGestor .modal-header .close:hover {
+      opacity: 1;
+    }
+
+    #modalGestor .modal-title {
+      font-weight: bold;
+    }
+
+    #modalGestor .modal-body {
+      padding: 20px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    #modalGestor .modal-body a {
+      display: block;
+      padding: 10px;
+      background-color: #e6f2ff;
+      border-left: 5px solid #3399ff;
+      text-decoration: none;
+      margin-bottom: 10px;
+      color: #005599;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+
+    #modalGestor .modal-body a:hover {
+      background-color: #cce5ff;
+    }
+
+    #modalGestor .modal-footer {
+      background-color: #f2f9ff;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      padding: 10px 20px;
+    }
+
+    #modalGestor .modal-footer .btn-default {
+      background-color: #3399ff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+
+    #modalGestor .modal-footer .btn-default:hover {
+      background-color: #267acc;
+    }

@@ -1,0 +1,343 @@
+  /* ================== ESTILOS GERAIS ================== */
+  body {
+      margin: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+      background-color: rgb(193, 223, 244);
+      position: relative;
+      font-family: Arial, sans-serif;
+      color: #0d47a1;
+  }
+
+  /* Canvas de fundo */
+  #hexCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      display: block;
+  }
+
+  /* Garantir que elementos fiquem acima do canvas */
+  header,
+  .titulo-carrinho,
+  .row,
+  .resumo {
+      position: relative;
+      z-index: 1;
+  }
+
+  /* ================== NAVBAR ================== */
+  .navbar {
+      background-color: rgb(193, 223, 244);
+      padding: 10px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid #90caf9;
+  }
+
+  .navbar .left-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+  }
+
+  .elemento {
+      background: transparent;
+      border: none;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+  }
+
+  .elemento img {
+      width: 28px;
+      height: 28px;
+      display: block;
+  }
+
+  .navbar .logo {
+      font-size: 20px;
+      font-weight: bold;
+      color: #003366;
+  }
+
+  .navbar .menu {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+  }
+
+  .navbar .menu a {
+      text-decoration: none;
+      color: #003366;
+      background: transparent;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+      font-weight: normal;
+  }
+
+  .navbar .menu a:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  .navbar .menu .carrinho {
+      background-color: #d6ebff;
+      color: #003366;
+      border: 1px solid #003366;
+      padding: 6px 12px;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s, color 0.3s;
+      text-decoration: none;
+  }
+
+  .navbar .menu .carrinho:hover {
+      background-color: #b3dcff;
+      color: #003366;
+  }
+
+  .navbar .menu .sair-sistema,
+  .navbar .menu .btn-info {
+      background: transparent !important;
+      border: none !important;
+      color: #003366 !important;
+      font-weight: bold !important;
+      padding: 6px 12px;
+      cursor: pointer;
+      text-decoration: none;
+  }
+
+  .navbar .menu .sair-sistema:hover,
+  .navbar .menu .btn-info:hover {
+      color: #0056b3 !important;
+      background: transparent !important;
+      text-decoration: underline;
+  }
+
+  /* ================== TÍTULO ================== */
+  .titulo-carrinho {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 6px;
+      margin-top: 50px;
+      margin-left: 20px;
+  }
+
+  .titulo-carrinho h1 {
+      font-family: Georgia, serif;
+      font-size: 36px;
+      font-weight: normal;
+      color: black;
+      margin: 0;
+  }
+
+  .titulo-carrinho .contador {
+      font-size: 20px;
+      font-weight: bold;
+      color: black;
+  }
+
+  .titulo-carrinho .itens-texto {
+      font-size: 18px;
+      color: black;
+  }
+
+  /* ================== PRODUTO ================== */
+  .produto-card {
+      background: linear-gradient(to right, #f1f1f1, #e6e6e6);
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin: 16px;
+      font-size: 1.1rem;
+  }
+
+  .produto-img {
+      width: 110px;
+      height: 110px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+  }
+
+  .produto-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+  }
+
+  .produto-nome {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #000;
+  }
+
+  .produto-precos {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 1.1rem;
+      color: #333;
+  }
+
+  .preco-final {
+      color: rgb(18, 101, 179);
+      font-weight: bold;
+      font-size: 1.2rem;
+  }
+
+  .frete,
+  .quantidade {
+      color: #555;
+      font-size: 1.05rem;
+      font-weight: 600;
+  }
+
+  .produto-lado-direito {
+      text-align: right;
+      min-width: 140px;
+  }
+
+  .valor-total {
+      font-weight: bold;
+      font-size: 1.3rem;
+      color: rgb(0, 0, 0);
+      margin-bottom: 55px;
+  }
+
+  .btn-danger.btn-xs {
+      padding: 6px 12px;
+      font-size: 1rem;
+      border-radius: 6px;
+      display: inline-block;
+  }
+
+  /* ================== RESUMO ================== */
+  .resumo {
+      background-color: #1565c0;
+      color: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin-right: 20px;
+  }
+
+  .resumo h4,
+  .resumo p,
+  .resumo h5 {
+      color: white;
+  }
+
+  .resumo hr {
+      border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .resumo a.btn-primary {
+      background-color: #b3dcff;
+      color: #003366 !important;
+      border: none;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+  }
+
+  .resumo a.btn-primary:hover {
+      background-color: #90caf9;
+      color: #002244 !important;
+  }
+
+  /* ================== CARRINHO VAZIO ================== */
+  .text-center {
+      position: relative;
+      z-index: 1;
+      color: black;
+      font-size: 1.5rem;
+      margin-top: 100px;
+      text-align: center;
+  }
+      /* Modal content estilizado */
+    #modalGestor .modal-content {
+      background-color: #f0f8ff;
+      border-radius: 10px;
+      border: 2px solid #3399ff;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      /* não precisa de z-index aqui */
+      position: relative;
+    }
+
+    #modalGestor .modal-header {
+      background-color: #3399ff;
+      color: white;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      padding: 15px;
+    }
+
+    #modalGestor .modal-header .close {
+      color: white;
+      opacity: 0.8;
+      font-size: 28px;
+    }
+
+    #modalGestor .modal-header .close:hover {
+      opacity: 1;
+    }
+
+    #modalGestor .modal-title {
+      font-weight: bold;
+    }
+
+    #modalGestor .modal-body {
+      padding: 20px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    #modalGestor .modal-body a {
+      display: block;
+      padding: 10px;
+      background-color: #e6f2ff;
+      border-left: 5px solid #3399ff;
+      text-decoration: none;
+      margin-bottom: 10px;
+      color: #005599;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+
+    #modalGestor .modal-body a:hover {
+      background-color: #cce5ff;
+    }
+
+    #modalGestor .modal-footer {
+      background-color: #f2f9ff;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      padding: 10px 20px;
+    }
+
+    #modalGestor .modal-footer .btn-default {
+      background-color: #3399ff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+
+    #modalGestor .modal-footer .btn-default:hover {
+      background-color: #267acc;
+    }

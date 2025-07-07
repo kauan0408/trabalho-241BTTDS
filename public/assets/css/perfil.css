@@ -1,0 +1,280 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: white;
+    padding: 10px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #ddd;
+}
+
+.navbar .left-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.elemento {
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+.elemento img {
+    width: 28px;
+    height: 28px;
+    display: block;
+}
+
+.navbar .logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #003366;
+}
+
+.navbar .menu {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.navbar .menu a {
+    text-decoration: none;
+    color: black;
+    background: transparent;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.navbar .menu a:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.navbar .menu .carrinho {
+    background-color: #d6ebff;
+    color: #003366;
+    border: 1px solid #003366;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar .menu .carrinho:hover {
+    background-color: #b3dcff;
+}
+
+.navbar .menu a.sair-sistema,
+.navbar .menu .btn-info {
+    background: transparent !important;
+    border: none !important;
+    color: black !important;
+    font-weight: bold !important;
+    padding: 6px 12px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.navbar .menu a.sair-sistema:hover,
+.navbar .menu .btn-info:hover {
+    color: #0056b3 !important;
+    text-decoration: underline;
+}
+
+.header {
+    background: url('fundo-azul.png') no-repeat center center;
+    background-size: cover;
+    padding: 50px;
+    color: black;
+}
+
+.header h1 {
+    font-size: 28px;
+}
+
+.botao {
+    display: inline-block;
+    margin: 20px 0;
+    padding: 10px 20px;
+    background-color: #79b9ff;
+    color: #003366;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.produtos {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.produto.grande {
+    flex: 1 1 30%;
+    max-width: 30%;
+}
+
+.grupo {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 50%;
+    max-width: 50%;
+    align-items: center;
+}
+
+.grupo .linha {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.grupo .produto img,
+.produto img {
+    width: 92%;
+    height: 98%;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-top: 30px;
+}
+
+.descricao {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
+    padding: 10px;
+    color: #555;
+}
+
+.secao-acreditamos {
+    display: flex;
+    align-items: flex-start;
+    max-width: 900px;
+    margin: 0 auto;
+    gap: 40px;
+}
+
+.secao-acreditamos h2 {
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 200px;
+    text-align: left;
+    flex-shrink: 0;
+}
+
+.secao-acreditamos .meus-paragrafos {
+    flex: 1;
+    max-width: 600px;
+    text-align: justify;
+    line-height: 1.6;
+}
+
+.secao-acreditamos p {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+#modalGestor .modal-content {
+    border-radius: 8px;
+    border: none;
+}
+
+#modalGestor .modal-header {
+    background-color: #0d47a1;
+    color: #fff;
+    padding: 12px 15px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+#modalGestor .modal-header .close {
+    color: #fff;
+    opacity: 1;
+    font-size: 24px;
+}
+
+#modalGestor .modal-body {
+    background-color: #e3f2fd;
+    color: #0d47a1;
+    padding: 15px;
+}
+
+#modalGestor .modal-body a {
+    color: #1e88e5;
+    text-decoration: none;
+}
+
+#modalGestor .modal-footer {
+    background-color: #bbdefb;
+    border-top: none;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    padding: 10px 15px;
+    text-align: right;
+}
+
+#modalGestor .modal-footer .btn-default {
+    background-color: #1e88e5;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#modalGestor .modal-footer .btn-default:hover {
+    background-color: #1565c0;
+}
+
+/* Fundo animado */
+.bolinhas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.bolinha {
+    position: absolute;
+    background-color: #79b9ff;
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: cair linear infinite;
+}
+
+@keyframes cair {
+    0% {
+        transform: translateY(-10px);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}

@@ -1,0 +1,551 @@
+        /* Fonte importada */
+        @import url('https://fonts.googleapis.com/css2?family=La+Roche+Serif&display=swap');
+
+        /* Navbar principal */
+        .navbar {
+            background-color: transparent;
+            padding: 10px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: none;
+        }
+        .navbar .left-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .elemento {
+            background: transparent;
+            border: none;
+            padding: 0;
+            margin: 0;
+            cursor: pointer;
+        }
+        .elemento img {
+            width: 28px;
+            height: 28px;
+            display: block;
+        }
+        .navbar .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: #003366;
+        }
+        .navbar .menu {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .navbar .menu a {
+            text-decoration: none;
+            color: black;
+            font-weight: normal;
+            background: transparent;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .navbar .menu a:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+        .navbar .menu .carrinho {
+            background-color: #d6ebff;
+            color: #003366;
+            border: 1px solid #003366;
+            padding: 6px 12px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+            text-decoration: none;
+        }
+        .navbar .menu .carrinho:hover {
+            background-color: #b3dcff;
+            color: #003366;
+        }
+        .navbar .menu a.sair-sistema,
+        .navbar .menu .btn-info {
+            background: transparent !important;
+            border: none !important;
+            color: black !important;
+            font-weight: bold !important;
+            padding: 6px 12px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .navbar .menu a.sair-sistema:hover,
+        .navbar .menu .btn-info:hover {
+            color: #0056b3 !important;
+            background: transparent !important;
+            text-decoration: underline;
+        }
+
+            /* Modal content estilizado */
+    #modalGestor .modal-content {
+      background-color: #f0f8ff;
+      border-radius: 10px;
+      border: 2px solid #3399ff;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      /* não precisa de z-index aqui */
+      position: relative;
+    }
+
+    #modalGestor .modal-header {
+      background-color: #3399ff;
+      color: white;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      padding: 15px;
+    }
+
+    #modalGestor .modal-header .close {
+      color: white;
+      opacity: 0.8;
+      font-size: 28px;
+    }
+
+    #modalGestor .modal-header .close:hover {
+      opacity: 1;
+    }
+
+    #modalGestor .modal-title {
+      font-weight: bold;
+    }
+
+    #modalGestor .modal-body {
+      padding: 20px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    #modalGestor .modal-body a {
+      display: block;
+      padding: 10px;
+      background-color: #e6f2ff;
+      border-left: 5px solid #3399ff;
+      text-decoration: none;
+      margin-bottom: 10px;
+      color: #005599;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+
+    #modalGestor .modal-body a:hover {
+      background-color: #cce5ff;
+    }
+
+    #modalGestor .modal-footer {
+      background-color: #f2f9ff;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      padding: 10px 20px;
+    }
+
+    #modalGestor .modal-footer .btn-default {
+      background-color: #3399ff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+
+    #modalGestor .modal-footer .btn-default:hover {
+      background-color: #267acc;
+    }
+
+        /* Alerta animado carrinho */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        .animated-cart {
+            animation: pulse 1.5s infinite;
+            width: 64px;
+            height: 64px;
+            display: block;
+            margin: 0 auto 10px auto;
+        }
+
+        /* Título coleção */
+        .titulo-colecao {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: white;
+            border-radius: 5px;
+            box-sizing: border-box;
+            box-shadow: 0 0 6px rgba(0,0,0,0.1);
+            flex-wrap: wrap;
+        }
+        .texto-titulo {
+            font-family: 'La Roche Serif', serif;
+            font-weight: 700;
+            font-size: 4rem;  /* tamanho grande para COLEÇÃO */
+            text-transform: uppercase;
+            color: #000;
+            white-space: nowrap;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+/* ---------- BARRA DA COLEÇÃO ---------- */
+.titulo-colecao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: white;
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: 0 0 6px rgba(0,0,0,0.1);
+    flex-wrap: wrap;
+    margin-bottom: 16px; /* Espaço de um dedo para os produtos */
+}
+
+.texto-titulo {
+    font-family: 'La Roche Serif', serif;
+    font-weight: 700;
+    font-size: 4rem;
+    text-transform: uppercase;
+    color: #000;
+    white-space: nowrap;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.texto-titulo .colecao {
+    font-size: 5rem !important;
+    z-index: 1;
+}
+
+.solo-leveling {
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    color: #000;
+    margin-left: 12px;
+    white-space: nowrap;
+}
+
+/* Botões da barra */
+.titulo-colecao .btn-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    background: transparent;
+    padding: 0;
+    margin-top: 10px;
+    border: none;
+    box-shadow: none;
+}
+
+.titulo-colecao .btn-group .btn {
+    background-color: white;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    padding: 10px 14px;
+    font-size: 0.85rem;
+    border-radius: 999px;
+    transition: background-color 0.3s, color 0.3s;
+    min-width: auto;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.titulo-colecao .btn-group .btn:hover,
+.titulo-colecao .btn-group .btn.active {
+    background-color: #90caf9;
+    color: black;
+}
+
+/* Responsividade da barra */
+@media (max-width: 500px) {
+    .titulo-colecao {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .titulo-colecao .btn-group {
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .titulo-colecao .btn-group .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .texto-titulo {
+        font-size: 2.8rem;
+    }
+
+    .solo-leveling {
+        font-size: 1.1rem;
+        margin-left: 8px;
+    }
+}
+
+
+/* ---------- PRODUTOS - GRADE E LISTA ---------- */ 
+
+/* Espaço da seção de produtos em relação à borda */
+.produtos {
+    margin-top: 16px;  /* distância da barra da coleção */
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+/* Grid com letras maiores */
+.produtos .row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.produtos .col-md-4,
+.produtos .col-sm-6 {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 20px;
+}
+
+.produtos .col-sm-4 > div,
+.produtos .col-md-4 > div {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, box-shadow 0.3s;
+    height: 100%;
+    padding: 0;
+}
+
+.produtos .col-sm-4 > div:hover,
+.produtos .col-md-4 > div:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.produtos .col-sm-4 img,
+.produtos .col-md-4 img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0;
+    margin: 0;
+}
+
+/* Novo container flex para nome/preço/coleção e botão lado a lado */
+.card-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 22px;
+    gap: 10px;
+}
+
+/* Agrupa nome, preço e coleção em coluna */
+.info-texto {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ajusta margens dos textos */
+.info-texto h4 {
+    font-size: 2rem;
+    margin: 0 0 8px 0;
+    color: #000;
+}
+
+.info-texto p {
+    margin: 0 0 6px 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.info-texto p:nth-of-type(1) {
+    font-weight: bold;
+    color: #003366;
+    font-size: 1.5rem;
+}
+
+/* Botão circular */
+.btn-circular-wrapper {
+    flex-shrink: 0; /* evita que o botão encolha */
+}
+
+.btn-compra {
+    display: inline-flex;
+    width: 50px;
+    height: 50px;
+    background-color: #42a5f5;
+    border-radius: 50%;
+    padding: 10px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-compra:hover {
+    background-color: #1e88e5;
+}
+
+.btn-compra img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+/* Coleção */
+.produtos p:nth-of-type(2) {
+    color: #999;
+    font-size: 1.2rem;
+    margin: 0 0 12px;
+}
+
+/* Texto em small */
+.produtos p small {
+    color: #999;
+    font-size: 1.1rem;
+}
+
+/* Botão padrão (ainda usado em outros modos talvez) */
+.produtos .btn {
+    font-size: 1.2rem;
+    padding: 10px 16px;
+    border-radius: 8px;
+}
+
+/* --- Botão circular com imagem (novo) --- */
+.btn-circular-wrapper {
+    margin-top: 12px;
+}
+
+.btn-compra {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-color: #42a5f5;
+    border-radius: 50%;
+    padding: 10px;
+    transition: background-color 0.3s;
+}
+
+.btn-compra:hover {
+    background-color: #1e88e5;
+}
+
+.btn-compra img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Modo lista */
+.lista-produtos {
+    padding: 0 16px;
+}
+
+.item-lista {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.item-imagem {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.item-info {
+    flex-grow: 1;
+}
+
+.item-info h4 {
+    font-size: 1.6rem;
+    margin: 0 0 6px;
+    color: #000;
+}
+
+.item-info .preco {
+    font-weight: bold;
+    color: #003366;
+    font-size: 1.3rem;
+    margin: 0 0 4px;
+}
+
+.item-info .colecao {
+    color: #777;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.item-botao {
+    margin-left: 20px;
+}
+
+.btn-compra {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-color: #42a5f5;
+    border-radius: 50%;
+    padding: 10px;
+    transition: background-color 0.3s;
+}
+
+.btn-compra:hover {
+    background-color: #1e88e5;
+}
+
+.btn-compra img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+/* ---------- BACKGROUND ANIMADO ---------- */
+
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-color: white;
+    pointer-events: auto;
+}
+
+canvas {
+    pointer-events: auto;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+

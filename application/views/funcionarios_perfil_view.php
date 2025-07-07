@@ -1,228 +1,180 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=], initial-scale=1.0">
-	<title>perfil</title>
-</head>
-<style>
-        /* Estilo geral da página */
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: ffffff;
-            margin: 0;
-            padding: 0;
-        }
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Perfil</title>
+    
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="<?= base_url('public/assets/css/funcionarios_perfil.css') ?>" />
 
-        /* Estilização do menu de navegação */
-        .navbar {
-            background-color: white;
-            padding: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid #ddd;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .navbar a {
-            text-decoration: none;
-            color: black;
-            margin: 0 15px;
-            font-weight: bold;
-        }
-
-        .navbar .logo {
-            font-size: 20px;
-            font-weight: bold;
-        }
-
-        .navbar .menu {
-            display: flex;
-            align-items: center;
-        }
-
-        /* Estilização do cabeçalho principal */
-        .header {
-            background: url('fundo-azul.png') no-repeat center center;
-            background-size: cover;
-            padding: 50px;
-            color: black;
-        }
-
-        .header h1 {
-            font-size: 28px;
-        }
-
-        /* Botão de navegação */
-        .botao {
-            display: inline-block;
-            margin: 20px 0;
-            padding: 10px 20px;
-            background-color: #79b9ff;
-            color: #003366;            
-            text-decoration: none;
-            border-radius: 5px;
-        }
-
-        /* Área de produtos */
-        .produtos {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            gap: 20px;
-        }
-
-        /* Primeira camiseta grande e isolada */
-        .produto.grande {
-            flex: 1 1 40%;
-            max-width: 40%;
-        }
-
-        /* Grupo das duas últimas camisetas e legenda */
-        .grupo {
-            display: flex;
-            flex-direction: column;
-            flex: 1 1 50%;
-            max-width: 50%;
-        }
-
-        /* Ajuste para as duas últimas camisetas */
-        .grupo .produto {
-            display: flex;
-            flex: 1;
-            justify-content: center;
-            max-width: 100%;
-        }
-
-        /* Ajuste nas imagens */
-        .produto img {
-            width: 100%;
-            border-radius: 5px;
-        }
-
-        /* Centralizar a legenda abaixo das duas camisetas */
-        .descricao {
-            text-align: center;
-             /* Tamanho da fonte menor */
-            font-size: 10px;
-            margin-top: 10px;
-            padding: 10px;
-            max-width: 100%;
-            /* Cor um pouco mais suave */
-            color: #555; 
-        }       
-
-        .secao-acreditamos {
-            display: flex;
-            align-items: flex-start;
-            max-width: 900px;
-            margin: 0 auto;
-            /* Espaço entre título e parágrafos */
-            gap: 40px; 
-        }
-
-        .secao-acreditamos h2 {
-            font-size: 16px;
-            font-weight: bold;
-            text-transform: uppercase;
-            /* Define um tamanho fixo para o título */
-            width: 200px; 
-            text-align: left;
-            /* Evita que ele diminua */
-            flex-shrink: 0; 
-}
-
-        .secao-acreditamos .meus-paragrafos {
-            flex: 1;
-            max-width: 600px;
-            /* Justifica o texto */
-            text-align: justify; 
-            /* Dá mais espaço entre as linhas */
-            line-height: 1.6; 
-
-        }
-
-        .secao-acreditamos p {
-            /* Espaço entre os parágrafos */
-            margin-bottom: 15px; 
-            color: #333;
-        }
-    </style>
 </head>
 <body>
+	<?php if ($this->session->userdata('tipo') == 'gestor') : ?>
+		<div id="modalGestor" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Opções do Gestor</h4>
+					</div>
+					<div class="modal-body">
+						<p><a href="<?= base_url('funcionarios') ?>">Lista de funcionários</a></p>
+						<p><a href="<?= base_url('roupa_list') ?>">Lista de roupas</a></p>
+            <p><a href="<?= base_url('historico-compras') ?>">Histórico de compras</a></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	<?php endif; ?>
 
-    <!-- Barra de navegação superior -->
-    <div class="navbar">
-        <div class="logo">olá <?= $this->session->userdata('nome'); ?></div>
+	<!-- Barra de navegação superior -->
+	<div class="navbar">
+        <div class="left-group">
+            <button class="elemento" onclick="window.history.back()">
+                <img src="<?= base_url('public/assets/imgens/voltar.png') ?>" alt="Voltar">
+            </button>
+            <div class="logo">NekoPrint</div>
+        </div>
+
         <div class="menu">
-            <a href="deslogar">Sair do sistema</a>
-			<?php if ($this->session->userdata('tipo') == 'gestor') { ?><?php } ?> 
-            <a href="funcionarios">Lista de funcinarios</a>
-            <a href="#">Meu Perfil</a>
+            <?php if ($this->session->userdata('tipo') == 'gestor') : ?>
+                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalGestor">Acesso do Gestor</button>
+            <?php endif; ?>
+
+            <?php if ($this->session->userdata('id')): ?>
+                <a href="<?= base_url('deslogar') ?>" class="sair-sistema">Sair do sistema</a>
+            <?php else: ?>
+                <a href="<?= base_url('logar') ?>" class="sair-sistema">Logar</a>
+            <?php endif; ?>
+
+            <?php if ($this->session->userdata('id')): ?>
+                <a href="<?= base_url('meu-perfil') ?>" class="sair-sistema">Meu perfil</a>
+            <?php endif; ?>
+
+            <?php if ($this->session->userdata('id')): ?>
+                <a href="<?= site_url('carrinho') ?>" class="carrinho">Carrinho (<?= total_itens_carrinho() ?>)</a>
+            <?php endif; ?>
         </div>
     </div>
 
-        <!-- Cabeçalho principal da página -->
-        <div class="header">
-            <br/><br/><br/>
-            <h1>Bem-vindo à NekoPrint - O Paraíso das <br/> Camisetas de Anime Personalizadas!</h1>
-            <br/><br/>
-            <a href="#" class="botao">Navegue em nossa loja</a>
-            <br/><br/>
-        </div>
+	<!-- Fundo animado bolinhas -->
+	<div class="bolinhas"></div>
 
-    <div class="container">
-        <div class="produtos">
-            <!-- Primeira camiseta sozinha -->
-            <div class="produto grande">
-                <img src="camiseta1.jpg" alt="Camiseta com estampa de anime roxa">
-            </div>
+	<!-- Conteúdo principal -->
+	<div class="header">
+		<br /><br /><br />
+		<h1>Bem-vindo à NekoPrint - O Paraíso das <br /> Camisetas de Anime Personalizadas!</h1>
+		<br /><br />
+		<a href="<?= base_url('roupas') ?>" class="botao">Navegue em nossa loja</a>
+		<br /><br />
 
-            <!-- Contêiner para as duas últimas camisetas -->
-            <div class="grupo">
-                <div class="produto">
-                    <img src="camiseta2.jpg" alt="Camiseta com estampa de personagem de cabelo branco">
-                </div>
-                <div class="produto">
-                    <img src="camiseta3.jpg" alt="Camiseta preta com arte sombria">
-                </div>
+		<div class="container">
+			<div class="produtos">
+				<div class="produto grande">
+					<img src="<?= base_url('public/assets/imgens/blusa2.jpeg') ?>" alt="Camiseta com estampa de anime roxa" />
+				</div>
 
-                <!-- Descrição dos produtos -->
-                <p class="descricao">
-                    Camiseta estilosa e confortável, feita com tecido macio e respirável. 
-                    Possui estampa de alta qualidade, garantindo durabilidade e estilo.
-                </p>
-            </div>
-        </div>
-        <br/><br/><br/>
+				<div class="grupo">
+					<div class="linha">
+						<div class="produto">
+							<img src="<?= base_url('public/assets/imgens/blusa1.jpeg') ?>" alt="Camiseta com estampa de personagem de cabelo branco" />
+						</div>
+						<div class="produto">
+							<img src="<?= base_url('public/assets/imgens/blusa3.jpeg') ?>" alt="Camiseta preta com arte sombria" />
+						</div>
+					</div>
 
-        <!-- Seção de informações sobre a loja -->
-        <div class="secao-acreditamos">
-    <h2>NO QUE ACREDITAMOS</h2>
-    <div class="meus-paragrafos">
-        <p>
-            Se você é um verdadeiro fã de anime e quer expressar sua paixão com autenticidade, 
-            a NekoPrint é o lugar perfeito para você! Nossa loja online oferece camisetas de alta 
-            qualidade com estampas exclusivas, inspiradas nos animes mais icônicos e nos 
-            personagens que marcaram gerações.
-        </p>
-        <p>
-            Aqui, unimos conforto, durabilidade e um design incrível para que você possa vestir 
-            seu anime favorito com orgulho. Nossas camisetas são feitas com materiais premium e 
-            estampas vibrantes, garantindo um visual estiloso e duradouro.
-        </p>
-        <p>
-            Seja para colecionar, presentear ou simplesmente adicionar um toque otaku ao seu dia a dia, 
-            na NekoPrint você encontra as melhores opções. Explore nossa coleção e leve a 
-            cultura anime para o seu guarda-roupa!
-        </p>
-    </div>
-</div>   
-    </div>
+					<p class="descricao">
+						Camiseta estilosa e confortável, feita com tecido macio e respirável. Possui estampa de alta qualidade,
+						garantindo durabilidade e estilo.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<br /><br /><br />
+
+		<div class="secao-acreditamos">
+			<h2>NO QUE ACREDITAMOS</h2>
+			<div class="meus-paragrafos">
+				<p>Se você é um verdadeiro fã de anime e quer expressar sua paixão com autenticidade,
+					a NekoPrint é o lugar perfeito para você! Nossa loja online oferece camisetas de alta
+					qualidade com estampas exclusivas, inspiradas nos animes mais icônicos e
+					nos personagens que marcaram gerações.</p>
+
+				<p>Aqui, unimos conforto, durabilidade e um design incrível para que você possa vestir
+					seu anime favorito com orgulho. Nossas camisetas são feitas com materiais premium e
+					estampas vibrantes, garantindo um visual estiloso e duradouro.</p>
+
+				<p>Seja para colecionar, presentear ou simplesmente adicionar um toque otaku ao seu dia
+					a dia, na NekoPrint você encontra as melhores opções. Explore nossa coleção e leve a
+					cultura anime para o seu guarda-roupa!</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- JavaScript -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+	<!-- Bloqueia cliques se não estiver logado -->
+	<script>
+		<?php if (!$this->session->userdata('id')) : ?>
+			document.addEventListener('DOMContentLoaded', function () {
+				const permitido = ['roupas', 'logar'];
+
+				document.querySelectorAll('a, button').forEach(el => {
+					const href = el.getAttribute('href');
+					const onclick = el.getAttribute('onclick');
+
+					const ehPermitido = (href && permitido.some(p => href.includes(p)))
+						|| (onclick && onclick.includes("window.history.back"))
+						|| el.getAttribute("data-toggle") === "modal";
+
+					if (!ehPermitido) {
+						el.addEventListener('click', function (e) {
+							e.preventDefault();
+							window.location.href = "<?= base_url('logar') ?>";
+						});
+					}
+				});
+
+				// Bloqueia clique nas imagens
+				document.querySelectorAll('img').forEach(img => {
+					img.style.cursor = 'pointer';
+					img.addEventListener('click', function () {
+						window.location.href = "<?= base_url('logar') ?>";
+					});
+				});
+			});
+		<?php endif; ?>
+	</script>
+
+	<!-- Script para bolinhas caindo no fundo -->
+	<script>
+		const bolinhasContainer = document.querySelector('.bolinhas');
+
+		for (let i = 0; i < 150; i++) {
+			const bolinha = document.createElement('div');
+			const tamanho = Math.random() * 8 + 4 + 'px'; // Tamanho entre 4 e 12px
+			const left = Math.random() * 100 + 'vw';
+			const duracao = Math.random() * 5 + 5 + 's'; // Duração entre 5 e 10s
+			const delay = Math.random() * 5 + 's';
+
+			bolinha.classList.add('bolinha');
+			bolinha.style.width = tamanho;
+			bolinha.style.height = tamanho;
+			bolinha.style.left = left;
+			bolinha.style.animationDuration = duracao;
+			bolinha.style.animationDelay = delay;
+			bolinhasContainer.appendChild(bolinha);
+		}
+	</script>
+
 </body>
 </html>

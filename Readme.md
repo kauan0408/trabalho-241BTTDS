@@ -32,20 +32,26 @@ Essa tabela armazenará os funcionários e seus dados.
 
 **SQL para criar a tabela **``**:**
 
-```sql
-CREATE TABLE funcionarios (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL,
-    cargo VARCHAR(50) NOT NULL,
-    setor VARCHAR(50) NOT NULL,
-    cpf VARCHAR(14) UNIQUE NOT NULL,
-    email VARCHAR(100) UNIQUE NOT NULL,
-    telefone VARCHAR(20),
-    senha VARCHAR(255) NOT NULL,
-    tipo ENUM('comum', 'gestor') DEFAULT 'comum',
-    alerta_treinamento TEXT DEFAULT NULL
-);
-```
+    ```sql
+    CREATE TABLE funcionarios (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        nome VARCHAR(100) NOT NULL,
+        cargo VARCHAR(50) NOT NULL,
+        setor VARCHAR(50) NOT NULL,
+        cpf VARCHAR(14) UNIQUE NOT NULL,
+        email VARCHAR(100) UNIQUE NOT NULL,
+        telefone VARCHAR(20),
+        senha VARCHAR(255) NOT NULL,
+        tipo ENUM('comum', 'gestor') DEFAULT 'comum',
+        rua VARCHAR(100) NOT NULL,
+        numero VARCHAR(10) NOT NULL,
+        complemento VARCHAR(50),
+        bairro VARCHAR(50) NOT NULL,
+        cidade VARCHAR(50) NOT NULL,
+        estado CHAR(2) NOT NULL,
+        cep VARCHAR(10) NOT NULL
+    );
+    ```
 
 ---
 
@@ -173,4 +179,48 @@ SELECT
     (COUNT(CASE WHEN data_vencimento >= CURDATE() THEN 1 END) * 100) / COUNT(*) AS percentual_conformidade
 FROM treinamentos;
 ```
+<!--aqui vai pucahar as coisa do banco de dados-->
+<table class="table table-striped small mt-3">
+            <thead>
+                <!-- Cabeçalhos das colunas da tabela -->
+                <tr>
+                    <th>#</th>       <!-- Coluna para o ID do funcionário -->
+                    <th>Nome</th>    <!-- Coluna para o nome do funcionário -->
+                    <th>preço</th>     <!-- Coluna para o CPF do funcionário -->
+                    <th>Foto</th>   <!-- Coluna para o cargo do funcionário -->
+                    <th>colecao</th>   <!-- Coluna para a foto do funcionário -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Loop PHP para exibir os dados dos funcionários -->
+                <?php foreach($roupas as $item) { ?>  
+        <tr>
+            <td><?= $item['id'] ?></td>
+            <td><?= $item['nome'] ?></td>
+            <td><?= $item['preco']?> R$</td>
+            <td><?= $item['colecao']?> R$</td>
+            <td>
+                <img src="<?= base_url('public/uploads/' . $item['imagem']) ?>" alt="Foto" width="60" height="60">
+            </td>
 
+        <!-- vaificar dentro de roupas -->
+            
+    <?php } ?>
+
+    <!-- tabela de roupa-->
+
+    CREATE TABLE roupa (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    colecao VARCHAR(50),
+    preco DECIMAL(10, 2),
+    imagem VARCHAR(255)  -- caminho ou nome do arquivo da imagem
+);
+
+CREATE TABLE historico_compras (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id INT,
+    roupa_id INT,
+    quantidade INT,
+    data_compra DATETIME DEFAULT CURRENT_TIMESTAMP
+);
