@@ -75,7 +75,7 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'mysql-241bttds.alwaysdata.net',  // <- CORRIGIDO AQUI
+	'hostname' => 'mysql-241bttds.alwaysdata.net',
 	'username' => '241bttds',
 	'password' => '164812gc',
 	'database' => '241bttds_cadastro',
@@ -97,7 +97,7 @@ $db['default'] = array(
 
 $db['roupas'] = array(
 	'dsn'	=> '',
-	'hostname' => 'mysql-241bttds.alwaysdata.net', // <- CORRIGIDO AQUI
+	'hostname' => 'mysql-241bttds.alwaysdata.net',
 	'username' => '241bttds',
 	'password' => '164812gc',
 	'database' => '241bttds_roupas',
