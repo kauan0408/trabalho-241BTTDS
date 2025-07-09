@@ -97,7 +97,8 @@ switch (ENVIRONMENT)
  * This variable must contain the name of your "system" directory.
  * Set the path if it is not in the same directory as this file.
  */
-	$system_path = realpath(__DIR__ . '/../system');
+	$system_path = 'system';
+
 /*
  *---------------------------------------------------------------
  * APPLICATION DIRECTORY NAME
@@ -113,7 +114,7 @@ switch (ENVIRONMENT)
  *
  * NO TRAILING SLASH!
  */
-	$application_folder = realpath(__DIR__ . '/application');
+	$application_folder = 'application';
 
 /*
  *---------------------------------------------------------------
@@ -311,4 +312,4 @@ switch (ENVIRONMENT)
  *
  * And away we go...
  */
-require_once(__DIR__ . '/system/core/CodeIgniter.php');
+require_once BASEPATH.'core/CodeIgniter.php';
