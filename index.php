@@ -53,7 +53,7 @@
  *
  * NOTE: If you change these, also change the error_reporting() code below
  */
-define('ENVIRONMENT', 'development');
+	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
 /*
  *---------------------------------------------------------------
@@ -66,7 +66,7 @@ define('ENVIRONMENT', 'development');
 switch (ENVIRONMENT)
 {
 	case 'development':
-		error_reporting(E_ALL);
+		error_reporting(-1);
 		ini_set('display_errors', 1);
 	break;
 
@@ -97,7 +97,7 @@ switch (ENVIRONMENT)
  * This variable must contain the name of your "system" directory.
  * Set the path if it is not in the same directory as this file.
  */
-	$system_path = 'system';
+	$system_path = $_SERVER['DOCUMENT_ROOT'].DIRECTORY_SEPARATOR.'system';
 
 /*
  *---------------------------------------------------------------
@@ -110,11 +110,11 @@ switch (ENVIRONMENT)
  * use an absolute (full) server path.
  * For more info please see the user guide:
  *
- * https://codeigniter.com/userguide3/general/managing_apps.html
+ * https://codeigniter.com/user_guide/general/managing_apps.html
  *
  * NO TRAILING SLASH!
  */
-	$application_folder = 'application';
+	$application_folder = $_SERVER['DOCUMENT_ROOT'].DIRECTORY_SEPARATOR.'application';
 
 /*
  *---------------------------------------------------------------
